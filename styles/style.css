@@ -1,0 +1,255 @@
+:root {
+  --bg-color: #F3EFEC;
+  --text-color: #312A4E;
+  --accent-color: #FFAB6B;
+  --main-font: 'Raleway';
+  --accent-font: 'STIX Two Text';
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.theme_dark {
+  --bg-color: #171717;
+  --text-color: #B3B3B3;
+  --accent-color: transparent; 
+}
+
+.page {
+  min-inline-size: 360px;
+  margin: 0;
+  background-color: var(--bg-color, #F3EFEC);
+  color: var(--text-color, #312A4E);
+  font-family: var(--main-font, sans-serif);
+
+}
+
+p,
+h1,
+h2,
+h3,
+blockquote,
+ul,
+ol,
+li,
+figure {
+  margin: 0;
+}
+
+.content-section {
+  padding-inline: 5vi;
+}
+
+.heading {
+  font-family: var(--accent-font, serif);
+  line-height: 0.9em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.header__title {
+  font-size: clamp(3.75rem, 2.5rem + 6.1728vw, 7.5rem);
+  padding-block-end: 40px;
+}
+
+.content__title {
+  font-size: 30px;
+  padding: 7% 0 2.5%;
+}
+
+.content__text-block {
+  font-size: 18px;
+}
+
+.links {
+  color: inherit;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.links:focus {
+  outline: none;
+}
+
+.links:focus-visible {
+  outline: 1px var(--text-color) solid;
+  padding: 1px;
+}
+
+.content__paragraph:not(:last-child) {
+  padding-block-end: 1.5em;
+}
+
+.content__blockquote {
+  font-style: italic;
+  line-height: 2em;
+  inline-size: 75%;
+  margin: 0 auto 1.5em;
+}
+
+.content__list {
+  list-style: none;
+  padding-inline-start: 40px;
+}
+
+.content__list-items::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: -30px;
+  block-size: 15px;
+  inline-size: 15px;
+  background: url(../images/marker-light.svg) center/contain;
+}
+
+.theme_dark .content__list-items::before {
+  background: url(../images/marker-dark.svg) center/contain;
+}
+
+.content__list-items {
+  position: relative;
+}
+
+.content__list-items:not(:last-child) {
+  padding-block-end: 10px;
+}
+
+.content__text-block_type_first-lettered .content__paragraph:first-child::first-letter {
+  display: inline-block;
+  background-color: var(--accent-color);
+  padding: 4px;
+  margin: 1px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.theme_dark .content__text-block_type_first-lettered .content__paragraph:first-child::first-letter {
+  border: 1px var(--text-color) solid;
+}
+
+.content__picture {
+  inline-size: 100%;
+}
+
+.content__figure {
+  margin: 7% auto;
+  inline-size: calc(100% + 10vi);
+  position: relative;
+  inset-inline-end: 5vi;
+}
+
+.content__picture-caption {
+  padding-block: 20px;
+  text-align: center;
+  border-bottom: 1px var(--text-color) solid;
+}
+
+.content__card {
+  aspect-ratio: 4/3;
+  margin-block-start: 7%;
+  border: 1px var(--text-color) solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content__card-title {
+  font-size: 60px;
+  line-height: 0.9em;
+}
+
+.content__card-subtitle {
+  font-size: 18px;
+}
+
+.colored-text {
+  position: relative;
+}
+
+.colored-text::after {
+  content: ' ';
+  position: absolute;
+  inset-inline-start: -4px;
+  inset-block-end: 0.3ch;
+  z-index: -1;
+  block-size: 0.5ch;
+  inline-size: calc(100% + 8px);
+  background-color: var(--accent-color);
+}
+
+.theme_dark .colored-text::after {
+  background: url(../images/pattern.svg) center/contain;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 20px;
+  border: 1px var(--text-color) solid;
+  border-right: none;
+  border-left: none;
+}
+
+.header__theme-toggler {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.header__theme-button {
+  font-family: inherit;
+  font-size: inherit;
+  color: currentColor;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.header__theme-button:hover {
+  text-decoration: underline;
+}
+
+.header__theme-button:focus {
+  outline: none;
+}
+
+.header__theme-button:focus-visible {
+  outline: 1px var(--text-color) solid;
+  padding: 1px;
+}
+
+.header__theme-button_is-active {
+  font-weight: 700;
+  padding-inline: 5px;
+  position: relative;
+  pointer-events: none;
+}
+
+.header__theme-button_is-active::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  z-index: -1;
+  block-size: 0.3em;
+  inline-size: 100%;
+  background-color: var(--accent-color);
+}
+
+.theme_dark .header__theme-button_is-active::after {
+  background: url(../images/pattern.svg) center/contain;
+}
+
+.footer {
+  font-size: inherit;
+  margin-block-start: 10%;
+  padding-block: 2.5%;
+  border-top: 1px var(--text-color) solid;
+  text-align: center;
+}
